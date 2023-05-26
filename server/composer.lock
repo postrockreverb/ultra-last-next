@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4e14c5e1cab9326844f175f2f297ccf1",
+    "packages": [
+        {
+            "name": "ji/donner",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeanIsahakyan/donner.git",
+                "reference": "c6c6c8add22bc4e27a15151be3daa343330a10e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeanIsahakyan/donner/zipball/c6c6c8add22bc4e27a15151be3daa343330a10e6",
+                "reference": "c6c6c8add22bc4e27a15151be3daa343330a10e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Donner\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zhan Isaakian",
+                    "email": "jeanisahkyan@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/JeanIsahakyan/donner/issues",
+                "source": "https://github.com/JeanIsahakyan/donner/tree/1.0"
+            },
+            "time": "2023-05-21T21:47:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

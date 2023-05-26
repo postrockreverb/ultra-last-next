@@ -1,0 +1,37 @@
+version: '3.8'
+
+networks:
+  default:
+    name: legacyjs-net
+
+services:
+  nginx-proxy:
+    container_name: legacy-nginx-proxy
+    restart: unless-stopped
+    image: nginxproxy/nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/proxy.nginx.conf:/etc/nginx/conf.d/my_proxy.conf
+    ports:
+      - '80:80'
+
+  nginx:
+    container_name: legacy-nginx-api
+    image: 'nginx:stable-alpine'
+    environment:
+      - VIRTUAL_HOST=legacy.localhost
+    restart: unless-stopped
+    volumes:
+      - ./server:/var/www/html
+      - ./nginx/api.nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+
+  php:
+    container_name: legacy-php
+    restart: unless-stopped
+    build:
+      context: ./server
+      dockerfile: ../docker/php.dockerfile
+    volumes:
+      - ./server:/var/www/html:delegated
