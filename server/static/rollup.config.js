@@ -14,7 +14,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const extensions = ['.ts', '.tsx'];
 
 export default {
-  input: './app/index.tsx',
+  input: './index.tsx',
   output: {
     file: pkg.module,
     format: 'iife',

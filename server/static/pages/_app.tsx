@@ -1,9 +1,10 @@
 import { Fade } from '@/animations';
-import { Button, Container, MantineProvider, Text } from '@mantine/core';
+import { Button, Container, Text } from '@mantine/core';
+import { MantineProvider } from '@/providers';
 
-export const App = () => {
+export default function App() {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
+    <MantineProvider>
       <Container>
         <main>
           <Fade>
@@ -14,4 +15,4 @@ export const App = () => {
       </Container>
     </MantineProvider>
   );
-};
+}

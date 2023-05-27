@@ -1,14 +1,13 @@
 {
-  "include": ["./app"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["./dist", "./node_modules", "./rollup.config.js"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "importHelpers": true,
     "declaration": true,
-    "declarationDir": "./dist",
     "sourceMap": true,
-    "rootDir": "./app",
+    "declarationDir": "./dist",
     "outDir": "./dist",
     "strict": true,
     "noImplicitReturns": true,
@@ -27,7 +26,7 @@
     "target": "es5",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./app/*"],
+      "@/*": ["./*"],
       "react": ["./node_modules/preact/compat/"],
       "react-dom": ["./node_modules/preact/compat/"]
     }
