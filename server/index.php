@@ -11,8 +11,7 @@ echo <<<HTML
   <head>
     <meta charset="UTF-8">
     <title>legacy</title>
-    <script defer type="text/javascript" src="http://94.19.122.135:40003/dist/index.js"></script>
-    <script defer type="text/javascript" src="http://localhost:40003/dist/index.js"></script>
+    <script defer type="text/javascript" src="static/dist/index.js"></script>
   </head>
   <body>
     <div id="root"></div>

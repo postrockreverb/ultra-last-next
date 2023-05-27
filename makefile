@@ -6,10 +6,10 @@ init:
 	docker-compose build
 
 watch:
-	yarn --cwd ./server watch
+	yarn --cwd ./server/static watch
 
 build:
-	yarn --cwd ./server build
+	yarn --cwd ./server/static build
 
 shell:
 	docker exec -it legacy-server /bin/sh

@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
-import nodeGlobals from "rollup-plugin-node-globals";
+import nodeGlobals from 'rollup-plugin-node-globals';
 import alias from '@rollup/plugin-alias';
 
 import pkg from './package.json' assert { type: 'json' };
@@ -11,7 +11,7 @@ import pkg from './package.json' assert { type: 'json' };
 const extensions = ['.ts', '.tsx'];
 
 export default {
-  input: './src/app.tsx',
+  input: './app/index.tsx',
   output: {
     file: pkg.module,
     format: 'esm',
@@ -24,8 +24,8 @@ export default {
       entries: [
         { find: 'react', replacement: 'preact/compat' },
         { find: 'react-dom', replacement: 'preact/compat' },
-        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' }
-      ]
+        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
+      ],
     }),
     resolve({ extensions }),
     commonjs(),
