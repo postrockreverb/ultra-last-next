@@ -11,8 +11,6 @@ services:
     image: 'nginx:stable-alpine'
     ports:
       - '40003:80'
-    environment:
-      - VIRTUAL_HOST=legacy.localhost
     restart: unless-stopped
     volumes:
       - ./server:/var/www/html
