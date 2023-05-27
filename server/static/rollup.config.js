@@ -23,7 +23,11 @@ export default {
     strict: true,
   },
   plugins: [
-    resolve({ extensions }),
+    resolve({
+      extensions,
+      browser: true,
+      preferBuiltins: true,
+    }),
     commonjs(),
     nodeGlobals(),
     typescript({ tsconfig: './tsconfig.json' }),

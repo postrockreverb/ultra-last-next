@@ -7,8 +7,9 @@
   "module": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "NODE_ENV=development rollup -c --watch",
+    "clear-build": "rm -rf ./dist/*",
+    "build": "yarn clear-build && yarn rollup -c",
+    "watch": "yarn clear-build && NODE_ENV=development yarn rollup -c --watch",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
