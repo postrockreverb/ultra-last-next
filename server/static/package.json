@@ -12,6 +12,9 @@
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@mantine/core": "^6.0.11",
+    "@mantine/hooks": "^6.0.11",
     "@rollup/plugin-replace": "^5.0.2",
     "eslint-plugin-prettier": "^4.2.1",
     "framer-motion": "^10.12.16",
