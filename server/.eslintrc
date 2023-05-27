@@ -1,0 +1,68 @@
+{
+  "root": true,
+  "extends": [
+    "prettier",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "requireConfigFile": false,
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "restParams": true,
+      "spread": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "Promise": true,
+    "Set": true,
+    "Map": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error",
+    "no-async-promise-executor": "off",
+    "no-multi-spaces": ["error", {"ignoreEOLComments": true}],
+    "no-multiple-empty-lines": ["error", {"max": 1}],
+    "brace-style": ["error", "1tbs", {"allowSingleLine": true}],
+    "func-call-spacing": ["error", "never"],
+    "semi": ["error", "always"],
+    "semi-spacing": ["error", {"before": false, "after": true}],
+    "semi-style": ["error", "last"],
+    "no-extra-semi": "error",
+    "no-duplicate-imports": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "block-spacing": ["error", "always"],
+    "no-unreachable": "error",
+    "no-unsafe-negation": "error",
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }]
+  }
+}

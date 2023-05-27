@@ -1,0 +1,4 @@
+node_modules
+dist
+.eslintrc
+rollup.config.js
