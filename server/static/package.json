@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c --watch",
+    "watch": "NODE_ENV=development rollup -c --watch",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {

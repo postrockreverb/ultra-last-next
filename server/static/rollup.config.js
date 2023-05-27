@@ -9,6 +9,8 @@ import replace from '@rollup/plugin-replace';
 
 import pkg from './package.json' assert { type: 'json' };
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const extensions = ['.ts', '.tsx'];
 
 export default {
@@ -17,7 +19,7 @@ export default {
     file: pkg.module,
     format: 'iife',
     exports: 'named',
-    sourcemap: true,
+    sourcemap: isDev,
     strict: true,
   },
   plugins: [
@@ -26,15 +28,15 @@ export default {
     nodeGlobals(),
     typescript({ tsconfig: './tsconfig.json' }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify( 'development' ),
-      preventAssignment: true
+      'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production'),
+      preventAssignment: true,
     }),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
       presets: ['@babel/preset-env', '@babel/preset-react'],
     }),
-    terser(),
+    !isDev && terser(),
     alias({
       entries: [
         { find: 'react', replacement: 'preact/compat' },
