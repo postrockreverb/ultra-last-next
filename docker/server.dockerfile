@@ -13,6 +13,6 @@ RUN composer install
 # node deps
 RUN apk update && apk add nodejs npm
 RUN npm install --global yarn
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn
+COPY static/package.json ./static/
+COPY static/yarn.lock ./static/
+RUN yarn --cwd static
