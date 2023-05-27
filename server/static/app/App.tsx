@@ -1,3 +1,11 @@
+import { Fade } from '@/animations';
+
 export const App = () => {
-  return <h1>Hello, world</h1>;
-}
+  return (
+    <main>
+      <Fade>
+        <h1>Hello, world</h1>
+      </Fade>
+    </main>
+  );
+};
