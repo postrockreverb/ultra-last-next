@@ -5,15 +5,6 @@ networks:
     name: legacyjs-net
 
 services:
-#  nginx-proxy:
-#    container_name: legacy-nginx-proxy
-#    restart: unless-stopped
-#    image: nginxproxy/nginx-proxy
-#    volumes:
-#      - /var/run/docker.sock:/tmp/docker.sock:ro
-#      - ./nginx/proxy.nginx.conf:/etc/nginx/conf.d/my_proxy.conf
-#    ports:
-#      - '80:80'
 
   nginx-api:
     container_name: legacy-nginx-api
