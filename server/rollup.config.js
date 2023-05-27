@@ -24,6 +24,7 @@ export default {
       entries: [
         { find: 'react', replacement: 'preact/compat' },
         { find: 'react-dom', replacement: 'preact/compat' },
+        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' }
       ]
     }),
     resolve({ extensions }),
