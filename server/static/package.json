@@ -12,6 +12,7 @@
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
+    "@rollup/plugin-replace": "^5.0.2",
     "eslint-plugin-prettier": "^4.2.1",
     "preact": "^10.15.0"
   },

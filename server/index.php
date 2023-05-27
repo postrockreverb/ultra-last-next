@@ -10,7 +10,7 @@ echo <<<HTML
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>legacy</title>
+    <title>ultra last next</title>
     <script defer type="text/javascript" src="static/dist/index.js"></script>
   </head>
   <body>
