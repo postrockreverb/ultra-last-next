@@ -1,16 +1,23 @@
-import { Fade } from '@/animations';
-import { Button, Container, Text } from '@mantine/core';
+import { Container } from '@mantine/core';
 import { MantineProvider } from '@/providers';
+import { ErrorBoundary, LocationProvider, Router } from 'preact-iso';
+
+import Home from '@/pages/Home';
+import Profile from '@/pages/Profile';
 
 export default function App() {
   return (
     <MantineProvider>
       <Container>
         <main>
-          <Fade>
-            <Text height="xl">Hello, world</Text>
-            <Button>tap me :]</Button>
-          </Fade>
+          <LocationProvider>
+            <ErrorBoundary>
+              <Router>
+                <Home path="/" />
+                <Profile path="/profile" />
+              </Router>
+            </ErrorBoundary>
+          </LocationProvider>
         </main>
       </Container>
     </MantineProvider>

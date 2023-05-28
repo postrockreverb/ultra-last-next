@@ -58,6 +58,7 @@
     "semi-spacing": ["error", {"before": false, "after": true}],
     "semi-style": ["error", "last"],
     "no-extra-semi": "error",
+    "no-empty-pattern": "off",
     "no-duplicate-imports": "error",
     "eqeqeq": ["error", "always", { "null": "ignore" }],
     "block-spacing": ["error", "always"],
