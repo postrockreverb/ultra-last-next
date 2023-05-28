@@ -11,7 +11,7 @@ echo <<<HTML
   <head>
     <meta charset="UTF-8">
     <title>ultra last next</title>
-    <script defer type="text/javascript" src="static/dist/index.js"></script>
+    <script defer type="module" src="static/dist/index.js"></script>
   </head>
   <body>
     <div id="root"></div>

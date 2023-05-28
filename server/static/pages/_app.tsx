@@ -1,9 +1,9 @@
 import { Container } from '@mantine/core';
 import { MantineProvider } from '@/providers';
-import { ErrorBoundary, LocationProvider, Router } from 'preact-iso';
+import { ErrorBoundary, lazy, LocationProvider, Router } from 'preact-iso';
 
-import Home from '@/pages/Home';
-import Profile from '@/pages/Profile';
+const Home = lazy(() => import('./Home'));
+const Profile = lazy(() => import('./Profile'));
 
 export default function App() {
   return (
