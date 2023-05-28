@@ -744,21 +744,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.18.6"
 
-"@babel/plugin-transform-react-display-name@^7.18.6":
-  version "7.18.6"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.18.6.tgz#8b1125f919ef36ebdfff061d664e266c666b9415"
-  integrity sha512-TV4sQ+T013n61uMoygyMRm+xf04Bd5oqFpv2jAEQwSZ8NwQA7zeRPg1LMVg2PWi3zWBz+CLKD+v5bcpZ/BS0aA==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.18.6"
-
-"@babel/plugin-transform-react-jsx-development@^7.18.6":
-  version "7.18.6"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-development/-/plugin-transform-react-jsx-development-7.18.6.tgz#dbe5c972811e49c7405b630e4d0d2e1380c0ddc5"
-  integrity sha512-SA6HEjwYFKF7WDjWcMcMGUimmw/nhNRDWxr+KaLSCrkD/LMDBvWRmHAYgE1HDeF8KUuI8OAu+RT6EOtKxSW2qA==
-  dependencies:
-    "@babel/plugin-transform-react-jsx" "^7.18.6"
-
-"@babel/plugin-transform-react-jsx@^7.18.6", "@babel/plugin-transform-react-jsx@^7.22.3":
+"@babel/plugin-transform-react-jsx@^7.3.0":
   version "7.22.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.22.3.tgz#5a1f380df3703ba92eb1a930a539c6d88836f690"
   integrity sha512-JEulRWG2f04a7L8VWaOngWiK6p+JOSpB+DAtwfJgOaej1qdbNxqtK7MwTBHjUA10NeFcszlFNqCdbRcirzh2uQ==
@@ -768,14 +754,6 @@
     "@babel/helper-plugin-utils" "^7.21.5"
     "@babel/plugin-syntax-jsx" "^7.21.4"
     "@babel/types" "^7.22.3"
-
-"@babel/plugin-transform-react-pure-annotations@^7.18.6":
-  version "7.18.6"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-pure-annotations/-/plugin-transform-react-pure-annotations-7.18.6.tgz#561af267f19f3e5d59291f9950fd7b9663d0d844"
-  integrity sha512-I8VfEPg9r2TRDdvnHgPepTKvuRomzA8+u+nhY7qSI1fR2hRNebasZEETLyM5mAUr0Ku56OkXJ0I7NHJnO6cJiQ==
-  dependencies:
-    "@babel/helper-annotate-as-pure" "^7.18.6"
-    "@babel/helper-plugin-utils" "^7.18.6"
 
 "@babel/plugin-transform-regenerator@^7.21.5":
   version "7.21.5"
@@ -955,18 +933,6 @@
     "@babel/plugin-transform-dotall-regex" "^7.4.4"
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
-
-"@babel/preset-react@^7.22.3":
-  version "7.22.3"
-  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.22.3.tgz#2ec7f91d0c924fa2ea0c7cfbbf690bc62b79cd84"
-  integrity sha512-lxDz1mnZ9polqClBCVBjIVUypoB4qV3/tZUDb/IlYbW1kiiLaXaX+bInbRjl+lNQ/iUZraQ3+S8daEmoELMWug==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.21.5"
-    "@babel/helper-validator-option" "^7.21.0"
-    "@babel/plugin-transform-react-display-name" "^7.18.6"
-    "@babel/plugin-transform-react-jsx" "^7.22.3"
-    "@babel/plugin-transform-react-jsx-development" "^7.18.6"
-    "@babel/plugin-transform-react-pure-annotations" "^7.18.6"
 
 "@babel/regjsgen@^0.8.0":
   version "0.8.0"
@@ -1746,6 +1712,13 @@ babel-plugin-polyfill-regenerator@^0.5.0:
   integrity sha512-hDJtKjMLVa7Z+LwnTCxoDLQj6wdc+B8dun7ayF2fYieI6OzfuvcLMB32ihJZ4UhCBwNYGl5bg/x/P9cMdnkc2g==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.4.0"
+
+babel-preset-preact@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-preact/-/babel-preset-preact-2.0.0.tgz#3437b713a03b1d2031740b06b19c9115964ae619"
+  integrity sha512-gqJCALE4XXEienLkzgAQ351XyoVHTIiZRAKjEJupK7cTVhFyovEuSrVoNrTNrUu3R78vAarjxkrR6j0vr+Rg8Q==
+  dependencies:
+    "@babel/plugin-transform-react-jsx" "^7.3.0"
 
 balanced-match@^1.0.0:
   version "1.0.2"

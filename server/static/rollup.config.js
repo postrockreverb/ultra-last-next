@@ -45,7 +45,7 @@ export default {
     babel({
       babelHelpers: 'bundled',
       exclude: './node_modules/**',
-      presets: ['@babel/preset-env', '@babel/preset-react'],
+      presets: ['@babel/preset-env', 'preact'],
       extensions,
     }),
     !isDev && terser(),
