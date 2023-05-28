@@ -7,9 +7,8 @@
   "module": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "clear-build": "rm -rf ./dist/*",
-    "build": "yarn clear-build && yarn rollup -c",
-    "watch": "yarn clear-build && NODE_ENV=development yarn rollup -c --watch",
+    "build": "yarn rollup -c",
+    "watch": "NODE_ENV=development yarn rollup -c --watch",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
@@ -43,6 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.8",
     "rollup": "^3.23.0",
+    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "tslib": "^2.5.2",

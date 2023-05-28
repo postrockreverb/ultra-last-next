@@ -7,6 +7,7 @@ import nodeGlobals from 'rollup-plugin-node-globals';
 import alias from '@rollup/plugin-alias';
 import replace from '@rollup/plugin-replace';
 import external from 'rollup-plugin-peer-deps-external';
+import cleaner from 'rollup-plugin-cleaner';
 import fs from 'fs';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -25,6 +26,7 @@ export default {
     strict: true,
   },
   plugins: [
+    cleaner({ targets: ['./dist'] }),
     external(),
     resolve({
       extensions,
