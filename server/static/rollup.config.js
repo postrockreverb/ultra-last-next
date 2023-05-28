@@ -8,6 +8,8 @@ import alias from '@rollup/plugin-alias';
 import replace from '@rollup/plugin-replace';
 import external from 'rollup-plugin-peer-deps-external';
 import cleaner from 'rollup-plugin-cleaner';
+import autoprefixer from 'autoprefixer';
+import postcss from 'rollup-plugin-postcss';
 import fs from 'fs';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -42,12 +44,20 @@ export default {
       preventAssignment: true,
     }),
     typescript({ tsconfig: './tsconfig.json' }),
-    babel({
-      babelHelpers: 'bundled',
-      exclude: './node_modules/**',
-      presets: ['@babel/preset-env', 'preact'],
-      extensions,
+    postcss({
+      plugins: [autoprefixer()],
+      sourceMap: isDev,
+      extract: false,
+      modules: true,
+      minimize: !isDev,
     }),
+    !isDev &&
+      babel({
+        babelHelpers: 'bundled',
+        exclude: './node_modules/**',
+        presets: ['@babel/preset-env', 'preact'],
+        extensions,
+      }),
     !isDev && terser(),
     alias({
       entries: [
