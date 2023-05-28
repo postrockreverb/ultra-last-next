@@ -13,7 +13,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const extensions = ['.ts', '.tsx'];
 
 export default {
-  input: './index.tsx',
+  input: ['index.tsx', 'index2.tsx'],
   output: {
     format: 'es',
     dir: './dist',

@@ -12,9 +12,11 @@ echo <<<HTML
     <meta charset="UTF-8">
     <title>ultra last next</title>
     <script defer type="module" src="static/dist/index.js"></script>
+    <script defer type="module" src="static/dist/index2.js"></script>
   </head>
   <body>
     <div id="root"></div>
+    <div id="root2"></div>
   </body>
 </html>
 HTML;
