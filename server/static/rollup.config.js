@@ -18,7 +18,7 @@ export default {
     format: 'es',
     dir: './dist',
     exports: 'named',
-    sourcemap: true,
+    sourcemap: isDev,
     strict: true,
   },
   plugins: [

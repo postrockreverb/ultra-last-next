@@ -1461,6 +1461,18 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+"@tabler/icons-preact@^2.20.0":
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-preact/-/icons-preact-2.20.0.tgz#e3579d7a9fbb31607fdbaba54b5280aafe8d3543"
+  integrity sha512-ylTA8zj+pnStGqe3srJRwGE35N3KcG7vHiNnRsREV2eayNqWs5VzlddyBieMQNNG7+z33a6jND2/XKcUY22kHA==
+  dependencies:
+    "@tabler/icons" "2.20.0"
+
+"@tabler/icons@2.20.0":
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.20.0.tgz#42a11bb91b9d347fdf6b296274cf68998122bb10"
+  integrity sha512-BsUEJoqREs8bqcrf5HfJBq6/rDvsRI3h+T+0X1o7i8LBHonsH0iAngcyL0I82YKoSy9NiVDvM3LV63zDP0nPYQ==
+
 "@types/estree@*", "@types/estree@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.1.tgz#aa22750962f3bf0e79d753d3cc067f010c95f194"
