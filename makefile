@@ -1,6 +1,10 @@
 run:
 	docker-compose up -d
 
+restart-nginx:
+	docker restart legacy-nginx-api
+rn: restart-nginx
+
 init:
 	yarn --cwd ./server
 	docker-compose build

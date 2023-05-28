@@ -7,13 +7,16 @@ import nodeGlobals from 'rollup-plugin-node-globals';
 import alias from '@rollup/plugin-alias';
 import replace from '@rollup/plugin-replace';
 import external from 'rollup-plugin-peer-deps-external';
+import fs from 'fs';
 
 const isDev = process.env.NODE_ENV === 'development';
 
 const extensions = ['.ts', '.tsx'];
 
+const entries = fs.readdirSync('./entries').map((path) => 'entries/' + path + '/' + path + '.tsx');
+
 export default {
-  input: ['index.tsx', 'index2.tsx'],
+  input: entries,
   output: {
     format: 'es',
     dir: './dist',
