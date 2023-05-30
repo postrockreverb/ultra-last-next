@@ -1,8 +1,16 @@
 import { createRoot } from 'react-dom/client';
-import App from '@/entries/Landing/pages/_app';
+import { LocationProvider } from 'preact-iso';
+import { MantineProvider } from '@/providers';
+import App from './pages/_app';
 
 const container = document.getElementById('root-landing');
 if (container) {
   const root = createRoot(container);
-  root.render(<App />);
+  root.render(
+    <MantineProvider>
+      <LocationProvider>
+        <App />
+      </LocationProvider>
+    </MantineProvider>,
+  );
 }

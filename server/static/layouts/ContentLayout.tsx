@@ -1,0 +1,20 @@
+import { motion } from 'framer-motion';
+import { ComponentChildren } from 'preact';
+
+const variants = {
+  hidden: { opacity: 0, x: -30, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 20, y: 0 },
+};
+
+interface ContentLayoutProps {
+  children: ComponentChildren;
+}
+
+export const ContentLayout = ({ children }: ContentLayoutProps) => {
+  return (
+    <motion.main variants={variants} initial="hidden" animate="enter" exit="exit" transition={{ type: 'linear', duration: 0.4 }}>
+      {children}
+    </motion.main>
+  );
+};

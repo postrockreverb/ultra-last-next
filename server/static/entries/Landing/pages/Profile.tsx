@@ -1,13 +1,12 @@
 import { Text } from '@mantine/core';
-import { Fade } from '@/animations';
-import { PageProps } from '@/types';
+import { ContentLayout } from '@/layouts/ContentLayout';
 
-export default function Profile({}: PageProps) {
+export default function Profile() {
   return (
-    <Fade>
+    <ContentLayout>
       <Text>This is a</Text>
       <Text fz={32}>Profile</Text>
       <Text>page</Text>
-    </Fade>
+    </ContentLayout>
   );
 }

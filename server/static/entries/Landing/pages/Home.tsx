@@ -1,13 +1,15 @@
 import { Text } from '@mantine/core';
 import { Fade } from '@/animations';
-import { PageProps } from '@/types';
+import { ContentLayout } from '@/layouts/ContentLayout';
 
-export default function Home({}: PageProps) {
+export default function Home() {
   return (
-    <Fade>
-      <Text>This is a</Text>
-      <Text fz={32}>Home</Text>
-      <Text>page</Text>
-    </Fade>
+    <ContentLayout>
+      <Fade>
+        <Text>This is a</Text>
+        <Text fz={32}>Home</Text>
+        <Text>page</Text>
+      </Fade>
+    </ContentLayout>
   );
 }
