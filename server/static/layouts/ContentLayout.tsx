@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ComponentChildren } from 'preact';
+import { ReactNode } from 'react';
 
 const variants = {
   hidden: { opacity: 0, x: -30, y: 0 },
@@ -8,7 +8,7 @@ const variants = {
 };
 
 interface ContentLayoutProps {
-  children: ComponentChildren;
+  children: ReactNode;
 }
 
 export const ContentLayout = ({ children }: ContentLayoutProps) => {

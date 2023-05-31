@@ -1,10 +1,11 @@
 import { Navbar as _Navbar, Stack } from '@mantine/core';
-import { useLocation } from 'preact-iso';
 import { routes } from './routes';
 import { NavbarLink } from './NavbarLink';
+import { useLocation } from 'react-router-dom';
 
 export const Navbar = () => {
-  const { path } = useLocation();
+  const { pathname: path } = useLocation();
+
   const links = routes.map((link) => <NavbarLink {...link} key={link.label} href={link.href} active={path === link.href} />);
 
   return (

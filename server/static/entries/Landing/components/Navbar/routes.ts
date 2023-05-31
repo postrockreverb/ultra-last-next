@@ -1,4 +1,4 @@
-import { IconHome2, IconUser, IconFriends } from '@tabler/icons-preact';
+import { IconHome2, IconUser, IconFriends } from '@tabler/icons-react';
 
 export const routes = [
   { icon: IconHome2, label: 'Home', href: '/' },

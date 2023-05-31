@@ -1,8 +1,8 @@
 import { MantineProvider as _MantineProvider } from '@mantine/core';
-import { ComponentChildren } from 'preact';
+import { ReactNode } from 'react';
 
 interface MantineThemeProps {
-  children: ComponentChildren;
+  children: ReactNode;
 }
 
 export const MantineProvider = ({ children }: MantineThemeProps) => {

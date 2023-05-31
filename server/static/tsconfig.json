@@ -4,7 +4,6 @@
     "./dist",
     "./node_modules",
     "./rollup.config.js",
-    "./babel.config.js"
   ],
   "compilerOptions": {
     "module": "esnext",
@@ -32,8 +31,6 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
-      "react": ["./node_modules/preact/compat/"],
-      "react-dom": ["./node_modules/preact/compat/"]
     }
   }
 }

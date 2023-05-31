@@ -1,24 +1,21 @@
-import { Suspense } from 'react';
+import { lazy } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { lazy, useLocation } from 'preact-iso';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 const Home = lazy(() => import('./Home'));
 const Profile = lazy(() => import('./Profile'));
 const Friends = lazy(() => import('./Friends'));
 
 export default function Router() {
-  const { path } = useLocation();
+  const location = useLocation();
 
   return (
-    <>
-      {/* @ts-ignore*/}
-      <Suspense fallback={<></>}>
-        <AnimatePresence mode="wait" initial={true}>
-          {path === '/' && <Home key={path} />}
-          {path === '/profile' && <Profile key={path} />}
-          {path === '/friends' && <Friends key={path} />}
-        </AnimatePresence>
-      </Suspense>
-    </>
+    <AnimatePresence mode="wait" initial={true}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="friends" element={<Friends />} />
+      </Routes>
+    </AnimatePresence>
   );
 }

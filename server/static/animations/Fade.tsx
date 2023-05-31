@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { ComponentChildren } from 'preact';
+import { ReactNode } from 'react';
 
 interface FadedBoxProps {
-  children: ComponentChildren;
+  children: ReactNode;
   delaySec?: number;
 }
 

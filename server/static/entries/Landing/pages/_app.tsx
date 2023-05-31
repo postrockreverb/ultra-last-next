@@ -1,4 +1,4 @@
-import { LocationProvider } from 'preact-iso';
+import { BrowserRouter } from 'react-router-dom';
 import { Container, Flex } from '@mantine/core';
 import { MantineProvider } from '@/providers';
 import { Navbar } from '../components/Navbar/Navbar';
@@ -7,14 +7,14 @@ import Router from './_router';
 export default function App() {
   return (
     <MantineProvider>
-      <LocationProvider>
+      <BrowserRouter>
         <Flex>
           <Navbar />
           <Container>
             <Router />
           </Container>
         </Flex>
-      </LocationProvider>
+      </BrowserRouter>
     </MantineProvider>
   );
 }

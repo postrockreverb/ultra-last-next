@@ -1,6 +1,6 @@
 import { Button, Flex, Text, useMantineTheme } from '@mantine/core';
 import { useEffect, useState } from 'react';
-import { IconHeart } from '@tabler/icons-preact';
+import { IconHeart } from '@tabler/icons-react';
 
 const useLikeColor = (isLiked: boolean | undefined) => {
   const theme = useMantineTheme();
