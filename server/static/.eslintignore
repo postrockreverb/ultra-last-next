@@ -2,3 +2,4 @@ node_modules
 dist
 .eslintrc
 rollup.config.js
+babel.config.js

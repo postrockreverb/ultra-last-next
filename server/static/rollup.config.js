@@ -14,7 +14,7 @@ import fs from 'fs';
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const extensions = ['.ts', '.tsx'];
+const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 
 const entries = fs.readdirSync('./entries').map((entry) => {
   return `./entries/${entry}/${entry}.tsx`;
