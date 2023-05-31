@@ -1,4 +1,4 @@
-import { Tooltip } from '@mantine/core';
+import { Anchor, Tooltip } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
 interface NavbarLinkProps {
@@ -13,9 +13,11 @@ export const NavbarLink = ({ icon: Icon, label, href, active }: NavbarLinkProps)
 
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <Link to={href ?? ''}>
-        <Icon size="1.2rem" stroke={1.5} color={iconColor} />
-      </Link>
+      <Anchor component="span">
+        <Link to={href ?? ''}>
+          <Icon size="1.2rem" stroke={1.5} color={iconColor} />
+        </Link>
+      </Anchor>
     </Tooltip>
   );
 };
