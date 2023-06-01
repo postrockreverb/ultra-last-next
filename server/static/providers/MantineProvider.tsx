@@ -1,14 +1,50 @@
-import { MantineProvider as _MantineProvider } from '@mantine/core';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useReducer } from 'react';
+import { ColorScheme, ColorSchemeProvider, MantineProvider as _MantineProvider, MantineThemeOverride } from '@mantine/core';
+
+const BACKGROUND_LIGHT = 'rgb(255, 255, 255)';
+const BACKGROUND_DARK = 'rgb(26, 32, 44)';
+const TEXT_LIGHT = 'rgb(0, 0, 0)';
+const TEXT_DARK = 'rgba(255, 255, 255, 0.92)';
+
+const getMantineTheme = (colorScheme: 'light' | 'dark'): MantineThemeOverride => {
+  return {
+    colorScheme,
+    globalStyles: (theme) => ({
+      body: {
+        ...theme.fn.fontStyles(),
+        backgroundColor: theme.colorScheme === 'dark' ? BACKGROUND_DARK : BACKGROUND_LIGHT,
+        color: theme.colorScheme === 'dark' ? TEXT_DARK : TEXT_LIGHT,
+      },
+    }),
+  };
+};
 
 interface MantineThemeProps {
   children: ReactNode;
 }
 
 export const MantineProvider = ({ children }: MantineThemeProps) => {
+  const [, update] = useReducer((x) => x + 1, 0);
+
+  const toggleColorScheme = (value?: ColorScheme) => {
+    window.colors?.toggle(value);
+  };
+
+  useEffect(() => {
+    window.colors?.onMount();
+    window.addEventListener('colorschemeupdate', update);
+    return () => {
+      window.removeEventListener('colorschemeupdate', update);
+    };
+  }, []);
+
+  const colorScheme = window.colors?.getScheme() ?? 'dark';
+  const theme = getMantineTheme(colorScheme);
   return (
-    <_MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
-      {children}
-    </_MantineProvider>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <_MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+        {children}
+      </_MantineProvider>
+    </ColorSchemeProvider>
   );
 };

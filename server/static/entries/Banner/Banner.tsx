@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { Content } from './Content';
+import { Content } from './components';
 
 const container = document.getElementById('root-banner');
 if (container) {

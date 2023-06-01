@@ -1,20 +1,23 @@
 <?php
 
+use Common\DocumentHead;
+
 require_once 'autoload.php';
 
 set_time_limit(0);
 @error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
 
+DocumentHead::setTitle("ultra last next demo");
+DocumentHead::addScript('static/dist/Landing.js');
+DocumentHead::addScript('static/dist/Banner.js');
+DocumentHead::addStyles('globals.css');
+DocumentHead::addColorsScheme('rgb(255, 255, 255)', 'rgb(26, 32, 44)');
+$html_head = DocumentHead::build();
+
 echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>ultra last next</title>
-    <link rel="stylesheet" href="globals.css">
-    <script defer type="module" src="static/dist/Landing.js"></script>
-    <script defer type="module" src="static/dist/Banner.js"></script>
-  </head>
+  {$html_head}
   <body>
     <div class="app-container">
       <div id="root-landing"></div>
