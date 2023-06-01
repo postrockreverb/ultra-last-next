@@ -27,18 +27,18 @@ export const MantineProvider = ({ children }: MantineThemeProps) => {
   const [, update] = useReducer((x) => x + 1, 0);
 
   const toggleColorScheme = (value?: ColorScheme) => {
-    window.colors?.toggle(value);
+    window.colorScheme?.toggle(value);
   };
 
   useEffect(() => {
-    window.colors?.onMount();
+    window.colorScheme?.onMount();
     window.addEventListener('colorschemeupdate', update);
     return () => {
       window.removeEventListener('colorschemeupdate', update);
     };
   }, []);
 
-  const colorScheme = window.colors?.getScheme() ?? 'dark';
+  const colorScheme = window.colorScheme?.getScheme() ?? 'dark';
   const theme = getMantineTheme(colorScheme);
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>

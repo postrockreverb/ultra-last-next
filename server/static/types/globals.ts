@@ -1,6 +1,6 @@
 import { ColorScheme } from '@mantine/core';
 
-export type WindowColors = {
+export type WindowColorScheme = {
   onMount: () => void;
   getScheme: () => ColorScheme;
   toggle: (colorScheme?: ColorScheme) => void;
@@ -8,7 +8,7 @@ export type WindowColors = {
 
 declare global {
   interface Window {
-    colors?: WindowColors;
+    colorScheme?: WindowColorScheme;
   }
 }
 

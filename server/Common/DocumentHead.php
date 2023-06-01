@@ -43,7 +43,7 @@ class DocumentHead {
 
       html.classList.add(initialTheme);
 
-      window.colors = {
+      window.colorScheme = {
         onMount: function() {
           html.classList.remove(initialTheme);
         },
@@ -53,7 +53,7 @@ class DocumentHead {
         },
         toggle: function(colorScheme) {
           if (!colorScheme) {
-            colorScheme = window.colors.getScheme() === 'dark' ? 'light' : 'dark'; 
+            colorScheme = window.colorScheme.getScheme() === 'dark' ? 'light' : 'dark'; 
           }
           localStorage.setItem('theme', colorScheme);
           dispatchEvent(updateEvent);
