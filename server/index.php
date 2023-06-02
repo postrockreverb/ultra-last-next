@@ -8,10 +8,10 @@ set_time_limit(0);
 @error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
 
 DocumentHead::setTitle("ultra last next demo");
-DocumentHead::addScript('static/dist/Landing.js');
-DocumentHead::addScript('static/dist/Banner.js');
+DocumentHead::addScript('Landing.js');
+DocumentHead::addScript('Banner.js');
 DocumentHead::addStyles('globals.css');
-DocumentHead::addColorsScheme('rgb(255, 255, 255)', 'rgb(26, 32, 44)');
+DocumentHead::addColorScheme('rgb(255, 255, 255)', 'rgb(26, 32, 44)');
 $html_head = DocumentHead::build();
 
 echo <<<HTML

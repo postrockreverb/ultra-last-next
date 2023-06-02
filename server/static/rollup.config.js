@@ -9,20 +9,28 @@ import external from 'rollup-plugin-peer-deps-external';
 import cleaner from 'rollup-plugin-cleaner';
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
+import pluginManifest from 'rollup-plugin-output-manifest';
 import fs from 'fs';
+
+const { default: outputManifest } = pluginManifest;
 
 const isDev = process.env.NODE_ENV === 'development';
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 
-const entries = fs.readdirSync('./entries').map((entry) => {
-  return `./entries/${entry}/${entry}.tsx`;
-});
+const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
+  return {
+    ...entries,
+    [entry]: `./entries/${entry}/index.tsx`,
+  };
+}, {});
 
 export default {
   input: entries,
   output: {
-    format: 'es',
+    format: 'esm',
+    entryFileNames: '[name]-[hash].js',
+    assetFileNames: '[name]-[hash].[extname]',
     dir: './dist',
     exports: 'named',
     sourcemap: isDev,
@@ -42,7 +50,6 @@ export default {
       'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production'),
       preventAssignment: true,
     }),
-    typescript({ tsconfig: './tsconfig.json' }),
     postcss({
       plugins: [autoprefixer()],
       sourceMap: isDev,
@@ -58,5 +65,7 @@ export default {
         extensions,
       }),
     !isDev && terser(),
+    typescript({ tsconfig: './tsconfig.json' }),
+    outputManifest({ filter: (chunk) => chunk.name && chunk.name in entries }),
   ],
 };

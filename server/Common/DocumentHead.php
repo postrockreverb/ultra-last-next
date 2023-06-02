@@ -4,7 +4,14 @@ namespace Common;
 
 class DocumentHead {
 
-  private const INDEX_TITLE = 0;
+  private const INDEX_TITLE   = 0;
+  private const STATIC_PATH   = 'static/dist/';
+  private const MANIFEST_PATH = 'static/dist/manifest.json';
+
+  /**
+   * @var string[]|null
+   */
+  private static ?array $manifest = null;
 
   /**
    * @var string[]
@@ -14,11 +21,20 @@ class DocumentHead {
     '<meta charset="UTF-8">',
   ];
 
+  private static function getStaticFilePath(string $filename): string {
+    if (!self::$manifest) {
+      self::$manifest = json_decode(file_get_contents(self::MANIFEST_PATH), true);
+    }
+
+    return self::STATIC_PATH . self::$manifest[$filename] ?? '';
+  }
+
   public static function setTitle(string $title): void {
     self::$head[self::INDEX_TITLE] = "<title>{$title}</title>";
   }
 
-  public static function addScript(string $src, string $type = 'module', $defer = true): void {
+  public static function addScript(string $filename, string $type = 'module', $defer = true): void {
+    $src          = self::getStaticFilePath($filename);
     $defer        = $defer ? 'defer' : '';
     self::$head[] = "<script {$defer} type=\"{$type}\" src=\"{$src}\"></script>";
   }
@@ -35,7 +51,7 @@ class DocumentHead {
     self::$head[] = "<style>{$styles}</style>";
   }
 
-  public static function addColorsScheme(string $background_light, string $background_dark): void {
+  public static function addColorScheme(string $background_light, string $background_dark): void {
     $script = <<<JS
       var html = document.querySelector('html');
       var initialTheme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
