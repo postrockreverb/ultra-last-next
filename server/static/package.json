@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn rollup -c",
-    "watch": "NODE_ENV=development yarn rollup -c --watch",
+    "watch": "NODE_ENV=development yarn rollup -c -w",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "prettier": "^2.8.8",
     "rollup": "^3.23.0",
     "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-output-manifest": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

@@ -10,6 +10,7 @@ import cleaner from 'rollup-plugin-cleaner';
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 import pluginManifest from 'rollup-plugin-output-manifest';
+import livereload from 'rollup-plugin-livereload';
 import fs from 'fs';
 
 const { default: outputManifest } = pluginManifest;
@@ -28,7 +29,7 @@ const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
 export default {
   input: entries,
   output: {
-    format: 'esm',
+    format: 'es',
     entryFileNames: '[name]-[hash].js',
     assetFileNames: '[name]-[hash].[extname]',
     dir: './dist',
@@ -57,15 +58,15 @@ export default {
       modules: true,
       minimize: !isDev,
     }),
-    !isDev &&
-      babel({
-        babelHelpers: 'bundled',
-        exclude: './node_modules/**',
-        presets: ['@babel/preset-env', '@babel/preset-react'],
-        extensions,
-      }),
+    babel({
+      babelHelpers: 'bundled',
+      exclude: './node_modules/**',
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      extensions,
+    }),
     !isDev && terser(),
     typescript({ tsconfig: './tsconfig.json' }),
     outputManifest({ filter: (chunk) => chunk.name && chunk.name in entries }),
+    isDev && livereload({ watch: './dist' }),
   ],
 };
