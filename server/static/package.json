@@ -7,8 +7,9 @@
   "module": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "yarn rollup -c",
-    "watch": "NODE_ENV=development yarn rollup -c -w",
+    "clear-build": "rm -rf ./dist/*",
+    "build": "yarn clear-build && yarn rollup -c",
+    "watch": "yarn clear-build && NODE_ENV=development yarn rollup -c -w",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
@@ -46,7 +47,6 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "rollup": "^3.23.0",
-    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-output-manifest": "^2.0.0",
