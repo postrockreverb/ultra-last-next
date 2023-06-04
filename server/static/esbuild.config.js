@@ -6,11 +6,11 @@ import fs from 'fs';
 export const isWatching = process.argv.includes('-w');
 export const isProduction = process.argv.includes('-p');
 
-const RE_ENTRY = /^entries\/(?<entry>\w+)\/(?<file>\w+)(?<ext>\..{2,4})/gm;
+const RE_ENTRY = /^entries\/(?<entry>\w+)\/index.tsx/gm;
 const RE_OUT_ENTRY = /^dist\/(?<file>.+)$/gm;
 
 const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
-  return { ...entries, [entry]: `./entries/${entry}/${entry}.tsx` };
+  return { ...entries, [entry]: `./entries/${entry}/index.tsx` };
 }, {});
 
 const css = cssModulesPlugin({ inject: true });
@@ -20,13 +20,8 @@ const manifest = manifestPlugin({
     const manifest = {};
     for (let [key, value] of Object.entries(entries)) {
       const entryMatches = RE_ENTRY.exec(key);
-      let ext = entryMatches.groups.ext;
-      if (ext === '.ts' || ext === '.tsx') {
-        ext = '.js';
-      }
-
       const outMatches = RE_OUT_ENTRY.exec(value);
-      manifest[entryMatches.groups.entry + ext] = outMatches.groups.file;
+      manifest[entryMatches.groups.entry + '.js'] = outMatches.groups.file;
 
       RE_ENTRY.lastIndex = 0;
       RE_OUT_ENTRY.lastIndex = 0;
