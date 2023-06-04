@@ -2,7 +2,7 @@ import esbuild from 'esbuild';
 import manifestPlugin from 'esbuild-plugin-manifest';
 import { livereloadPlugin } from '@jgoz/esbuild-plugin-livereload';
 import eslint from 'esbuild-plugin-eslint';
-import stylePlugin from 'esbuild-style-plugin';
+import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import fs from 'fs';
 
 export const isWatching = process.argv.includes('-w');
@@ -33,7 +33,7 @@ let ctx = await esbuild
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/dep-[hash]',
     plugins: [
-      stylePlugin({ extract: false }),
+      cssModulesPlugin({ inject: true }),
       manifestPlugin({
         generate: (entries) => {
           const manifest = {};
