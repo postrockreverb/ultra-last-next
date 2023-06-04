@@ -15,31 +15,6 @@ const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
   return { ...entries, [entry]: `./entries/${entry}/index.tsx` };
 }, {});
 
-const manifestOptions = {
-  generate: (entries) => {
-    const manifest = {};
-    for (let [key, value] of Object.entries(entries)) {
-      const entryMatches = RE_ENTRY.exec(key);
-      const outMatches = RE_OUT_ENTRY.exec(value);
-      manifest[entryMatches.groups.entry + '.js'] = outMatches.groups.file;
-
-      RE_ENTRY.lastIndex = 0;
-      RE_OUT_ENTRY.lastIndex = 0;
-    }
-    return manifest;
-  },
-};
-
-const buildLogger = () => ({
-  name: 'watchLogger',
-  setup(build) {
-    build.onEnd((result) => {
-      const emoji = result.errors.length ? '🥵' : '✅';
-      console.log(`${emoji}  Build ended with ${result.errors.length} errors`);
-    });
-  },
-});
-
 let ctx = await esbuild
   .context({
     entryPoints: entries,
@@ -52,7 +27,34 @@ let ctx = await esbuild
     minify: isProduction,
     sourcemap: !isProduction,
     keepNames: !isProduction,
-    plugins: [cssModulesPlugin({ inject: true }), manifestPlugin(manifestOptions), livereloadPlugin(), eslint(), buildLogger()],
+    plugins: [
+      cssModulesPlugin({ inject: true }),
+      manifestPlugin({
+        generate: (entries) => {
+          const manifest = {};
+          for (let [key, value] of Object.entries(entries)) {
+            const entryMatches = RE_ENTRY.exec(key);
+            const outMatches = RE_OUT_ENTRY.exec(value);
+            manifest[entryMatches.groups.entry + '.js'] = outMatches.groups.file;
+
+            RE_ENTRY.lastIndex = 0;
+            RE_OUT_ENTRY.lastIndex = 0;
+          }
+          return manifest;
+        },
+      }),
+      livereloadPlugin(),
+      eslint(),
+      {
+        name: 'watchLogger',
+        setup(build) {
+          build.onEnd((result) => {
+            const emoji = result.errors.length ? '🥵' : '✅';
+            console.log(`${emoji}  Build ended with ${result.errors.length} errors`);
+          });
+        },
+      },
+    ],
   })
   .catch(() => process.exit(1));
 
