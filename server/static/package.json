@@ -4,7 +4,6 @@
   "description": "",
   "author": "Alexandr Yermak",
   "license": "MIT",
-  "module": "./dist/index.js",
   "type": "module",
   "scripts": {
     "clear-build": "rm -rf ./dist/*",
