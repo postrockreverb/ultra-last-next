@@ -2408,6 +2408,11 @@ esbuild-css-modules-plugin@^2.7.1:
     postcss-modules "^6.0.0"
     tmp "^0.2.1"
 
+esbuild-plugin-eslint@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-eslint/-/esbuild-plugin-eslint-0.3.6.tgz#2ab1c01d54e8eba6a6017ec93107e73416510c0a"
+  integrity sha512-1S2tK3GCCUK8BE0L1H6fgEydvPi+nZFb0HC86csQ2l0GsFdZpGMj1khAJ91DnvlfINrfH4x6VLeNwXimowR7pw==
+
 esbuild-plugin-manifest@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/esbuild-plugin-manifest/-/esbuild-plugin-manifest-0.6.0.tgz#48d5ecffbf9bad62b80dc1564647c31041db799e"

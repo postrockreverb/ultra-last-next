@@ -42,6 +42,7 @@
     "autoprefixer": "^10.4.14",
     "esbuild": "^0.17.19",
     "esbuild-css-modules-plugin": "^2.7.1",
+    "esbuild-plugin-eslint": "^0.3.6",
     "esbuild-plugin-manifest": "^0.6.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",

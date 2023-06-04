@@ -1,8 +1,9 @@
 import esbuild from 'esbuild';
 import manifestPlugin from 'esbuild-plugin-manifest';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
-import fs from 'fs';
 import { livereloadPlugin } from '@jgoz/esbuild-plugin-livereload';
+import eslint from 'esbuild-plugin-eslint';
+import fs from 'fs';
 
 export const isWatching = process.argv.includes('-w');
 export const isProduction = process.argv.includes('-p');
@@ -14,7 +15,7 @@ const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
   return { ...entries, [entry]: `./entries/${entry}/index.tsx` };
 }, {});
 
-const manifest = manifestPlugin({
+const manifestOptions = {
   generate: (entries) => {
     const manifest = {};
     for (let [key, value] of Object.entries(entries)) {
@@ -27,29 +28,31 @@ const manifest = manifestPlugin({
     }
     return manifest;
   },
-});
+};
 
-const buildLogger = {
+const buildLogger = () => ({
   name: 'watchLogger',
   setup(build) {
     build.onEnd((result) => {
-      console.log(`✅  Build ended with ${result.errors.length} errors`);
+      const emoji = result.errors.length ? '🥵' : '✅';
+      console.log(`${emoji}  Build ended with ${result.errors.length} errors`);
     });
   },
-};
+});
 
 let ctx = await esbuild
   .context({
     entryPoints: entries,
     outdir: './dist',
     bundle: true,
-    target: 'es6',
-    loader: { '.ts': 'ts' },
-    sourcemap: !isProduction,
-    platform: 'browser',
-    minify: isProduction,
     write: true,
-    plugins: [cssModulesPlugin({ inject: true }), manifest, livereloadPlugin(), buildLogger],
+    target: 'es6',
+    platform: 'browser',
+    loader: { '.ts': 'ts' },
+    minify: isProduction,
+    sourcemap: !isProduction,
+    keepNames: !isProduction,
+    plugins: [cssModulesPlugin({ inject: true }), manifestPlugin(manifestOptions), livereloadPlugin(), eslint(), buildLogger()],
   })
   .catch(() => process.exit(1));
 
