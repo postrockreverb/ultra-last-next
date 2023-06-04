@@ -27,6 +27,11 @@ let ctx = await esbuild
     minify: isProduction,
     sourcemap: !isProduction,
     keepNames: !isProduction,
+    format: 'esm',
+    splitting: false,
+    entryNames: '[name]-[hash]',
+    assetNames: 'assets/[name]-[hash]',
+    chunkNames: 'chunks/dep-[hash]',
     plugins: [
       cssModulesPlugin({ inject: true }),
       manifestPlugin({
@@ -35,6 +40,11 @@ let ctx = await esbuild
           for (let [key, value] of Object.entries(entries)) {
             const entryMatches = RE_ENTRY.exec(key);
             const outMatches = RE_OUT_ENTRY.exec(value);
+
+            if (!entryMatches?.groups) {
+              continue;
+            }
+
             manifest[entryMatches.groups.entry + '.js'] = outMatches.groups.file;
 
             RE_ENTRY.lastIndex = 0;
