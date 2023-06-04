@@ -9,7 +9,7 @@
   "scripts": {
     "clear-build": "rm -rf ./dist/*",
     "build": "yarn clear-build && yarn rollup -c",
-    "watch": "yarn clear-build && NODE_ENV=development yarn rollup -c -w",
+    "watch": "yarn clear-build && node esbuild.config.js -w",
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
@@ -39,6 +39,9 @@
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
     "autoprefixer": "^10.4.14",
+    "esbuild": "^0.17.19",
+    "esbuild-css-modules-plugin": "^2.7.1",
+    "esbuild-plugin-manifest": "^0.6.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

@@ -4,6 +4,7 @@
     "./dist",
     "./node_modules",
     "./rollup.config.js",
+    "./esbuild.config.js"
   ],
   "compilerOptions": {
     "module": "esnext",
