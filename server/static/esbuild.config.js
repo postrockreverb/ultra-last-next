@@ -2,6 +2,7 @@ import esbuild from 'esbuild';
 import manifestPlugin from 'esbuild-plugin-manifest';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import fs from 'fs';
+import { livereloadPlugin } from '@jgoz/esbuild-plugin-livereload';
 
 export const isWatching = process.argv.includes('-w');
 export const isProduction = process.argv.includes('-p');
@@ -12,8 +13,6 @@ const RE_OUT_ENTRY = /^dist\/(?<file>.+)$/gm;
 const entries = fs.readdirSync('./entries').reduce((entries, entry) => {
   return { ...entries, [entry]: `./entries/${entry}/index.tsx` };
 }, {});
-
-const css = cssModulesPlugin({ inject: true });
 
 const manifest = manifestPlugin({
   generate: (entries) => {
@@ -49,10 +48,12 @@ let ctx = await esbuild
     sourcemap: !isProduction,
     platform: 'browser',
     minify: isProduction,
-    plugins: [css, manifest, buildLogger],
+    write: true,
+    plugins: [cssModulesPlugin({ inject: true }), manifest, livereloadPlugin(), buildLogger],
   })
   .catch(() => process.exit(1));
 
+console.clear();
 if (isWatching) {
   await ctx.watch();
   await ctx.serve({ servedir: './dist', port: 35729 });

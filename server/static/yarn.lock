@@ -1312,6 +1312,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@jgoz/esbuild-plugin-livereload@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@jgoz/esbuild-plugin-livereload/-/esbuild-plugin-livereload-2.0.2.tgz#716d1243c96eaeaf92a5c37874875977d54c91b6"
+  integrity sha512-MJAgJN3ht71yYkkU6H2oK3GOA7fPRBIP4wLAsuvuY0wjVXnHPBu+MQrhfydbLqN7cNifw9mlKOPAFnKJ3gHEiQ==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
