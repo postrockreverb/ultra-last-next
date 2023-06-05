@@ -11,7 +11,7 @@ if (container) {
     <MantineProvider>
       <Fade>
         <Flex justify="end" p="xs" pr="md">
-          <Hintable content="This container is independent application" needOpen={true} position="left">
+          <Hintable content="This button is independent application" needOpen={true} position="left">
             <ColorSchemeButton />
           </Hintable>
         </Flex>
