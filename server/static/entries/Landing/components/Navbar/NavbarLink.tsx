@@ -1,8 +1,9 @@
 import { Anchor, Tooltip } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { FC } from 'react';
 
 interface NavbarLinkProps {
-  icon: React.FC<any>;
+  icon: FC<any>;
   label: string;
   active?: boolean;
   href?: string;

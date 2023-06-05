@@ -6,7 +6,9 @@ import { useLocation } from 'react-router-dom';
 export const Navbar = () => {
   const { pathname: path } = useLocation();
 
-  const links = routes.map((link) => <NavbarLink {...link} key={link.label} href={link.href} active={path === link.href} />);
+  const links = routes.map((link) => (
+    <NavbarLink key={link.label} href={link.href} active={path === link.href} label={link.label} icon={link.icon} />
+  ));
 
   return (
     <_Navbar height={200} width={{ base: 80 }} p="md" bg="transparent">

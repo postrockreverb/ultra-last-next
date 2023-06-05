@@ -8,9 +8,9 @@ set_time_limit(0);
 @error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
 
 DocumentHead::setTitle("ultra last next demo");
-DocumentHead::addScript('Landing.js');
-DocumentHead::addScript('Banner.js');
-DocumentHead::addStyles('globals.css');
+DocumentHead::addScript('entries/Landing/index.tsx');
+DocumentHead::addScript('entries/ColorSchemeButton.tsx');
+DocumentHead::addStylesInline(file_get_contents('./globals.css'));
 DocumentHead::addColorScheme('rgb(255, 255, 255)', 'rgb(26, 32, 44)');
 $html_head = DocumentHead::build();
 
@@ -19,11 +19,9 @@ echo <<<HTML
 <html lang="en">
   {$html_head}
   <body>
+    <div id="root-color-scheme-button"></div>
     <div class="app-container">
       <div id="root-landing"></div>
-    </div>
-    <div class="app-container banner-container">
-      <div id="root-banner"></div>
     </div>
   </body>
 </html>

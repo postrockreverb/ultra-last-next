@@ -1,10 +1,12 @@
 import { ReactNode, useEffect, useReducer } from 'react';
 import { ColorScheme, ColorSchemeProvider, MantineProvider as _MantineProvider, MantineThemeOverride } from '@mantine/core';
 
-const BACKGROUND_LIGHT = 'rgb(255, 255, 255)';
-const BACKGROUND_DARK = 'rgb(26, 32, 44)';
-const TEXT_LIGHT = 'rgb(0, 0, 0)';
-const TEXT_DARK = 'rgba(255, 255, 255, 0.92)';
+export const BACKGROUND_LIGHT = 'rgb(255, 255, 255)';
+export const BACKGROUND_DARK = 'rgb(26, 32, 44)';
+export const BACKGROUND_OVERLAY_LIGHT = 'rgb(255, 255, 255)';
+export const BACKGROUND_OVERLAY_DARK = 'rgb(45,55,72)';
+export const TEXT_LIGHT = 'rgb(0, 0, 0)';
+export const TEXT_DARK = 'rgba(255, 255, 255, 0.92)';
 
 const getMantineTheme = (colorScheme: 'light' | 'dark'): MantineThemeOverride => {
   return {

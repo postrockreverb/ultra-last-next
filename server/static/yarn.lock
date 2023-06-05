@@ -2049,11 +2049,6 @@ esbuild-plugin-eslint@^0.3.6:
   resolved "https://registry.yarnpkg.com/esbuild-plugin-eslint/-/esbuild-plugin-eslint-0.3.6.tgz#2ab1c01d54e8eba6a6017ec93107e73416510c0a"
   integrity sha512-1S2tK3GCCUK8BE0L1H6fgEydvPi+nZFb0HC86csQ2l0GsFdZpGMj1khAJ91DnvlfINrfH4x6VLeNwXimowR7pw==
 
-esbuild-plugin-manifest@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/esbuild-plugin-manifest/-/esbuild-plugin-manifest-0.6.0.tgz#48d5ecffbf9bad62b80dc1564647c31041db799e"
-  integrity sha512-Tm+bq9hqtkV0Zkrk/3YE6XxSkUowEqDBVD1McqVX0OKtlpW19QnXO/E4QiPyJY9Ci+CmKqAhoKdZ5Rva20JL1Q==
-
 esbuild@^0.17.19:
   version "0.17.19"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.17.19.tgz#087a727e98299f0462a3d0bcdd9cd7ff100bd955"

@@ -13,12 +13,7 @@ a {
 }
 
 .app-container {
-  margin: 100px;
+  margin: 100px auto auto;
+  max-width: 800px;
 }
 
-.banner-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}

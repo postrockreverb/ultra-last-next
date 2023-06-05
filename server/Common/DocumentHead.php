@@ -5,7 +5,7 @@ namespace Common;
 class DocumentHead {
 
   private const INDEX_TITLE   = 0;
-  private const STATIC_PATH   = 'static/dist/';
+  private const STATIC_PATH   = 'static/';
   private const MANIFEST_PATH = 'static/dist/manifest.json';
 
   /**
