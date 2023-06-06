@@ -15,6 +15,7 @@ w: watch
 
 build-translations:
 	cd ./server && php ./Translations/build.php
+bt: build-translations
 
 build-static:
 	yarn --cwd ./server/static build

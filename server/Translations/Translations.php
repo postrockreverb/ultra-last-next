@@ -12,6 +12,8 @@ class Translations {
     self::LOCALE_RU,
   ];
 
+  private const COOKIE_KEY_LOCALE = 'locale';
+
   private const TRANSLATIONS_SOURCE_FILENAME_PATH = "Translations/translations.json";
 
   private const TRANSLATIONS_DIST_FILENAME_PATH_FORMAT = "Translations/dist/%s.json";
@@ -23,6 +25,25 @@ class Translations {
   public static function get(string $locale): string {
     $path = self::getLangPackFilenamePath($locale);
     return file_get_contents($path);
+  }
+
+  public static function getAuthUserLocale(): string {
+    $locale = $_COOKIE['locale'];
+    if ($locale && in_array($locale, self::LOCALES)) {
+      return $locale;
+    }
+
+    $locale = self::LOCALE_EN;
+    self::setAuthUserLocale($locale);
+    return $locale;
+  }
+
+  public static function setAuthUserLocale(string $locale): string {
+    if (!$locale || !in_array($locale, self::LOCALES)) {
+      $locale = self::LOCALE_EN;
+    }
+    setcookie(self::COOKIE_KEY_LOCALE, $locale);
+    return $locale;
   }
 
   public static function build(): void {

@@ -2,6 +2,10 @@ import { ReactNode } from 'react';
 import reactStringReplace from 'react-string-replace';
 
 class TranslationsInternal {
+  public getLocale = (): string | undefined => {
+    return window.translations?.lang;
+  };
+
   public replaceReact = (str: any, data: Record<string, string | ReactNode> = {}): ReactNode[] => {
     Object.keys(data).forEach((key: string) => {
       str = reactStringReplace(str, `{${key}}`, () => data[key]);
