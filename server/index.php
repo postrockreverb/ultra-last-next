@@ -12,6 +12,7 @@ DocumentHead::addScript('entries/Landing/index.tsx');
 DocumentHead::addScript('entries/ColorSchemeButton.tsx');
 DocumentHead::addStylesInline(file_get_contents('./globals.css'));
 DocumentHead::addColorScheme('rgb(255, 255, 255)', 'rgb(26, 32, 44)');
+DocumentHead::addTranslations("ru");
 $html_head = DocumentHead::build();
 
 echo <<<HTML

@@ -2,6 +2,8 @@
 
 namespace Common;
 
+use Translations\Translations;
+
 class DocumentHead {
 
   private const INDEX_TITLE   = 0;
@@ -88,6 +90,14 @@ class DocumentHead {
 
     self::addScriptInline($script);
     self::addStylesInline($css);
+  }
+
+  public static function addTranslations(string $locale): void {
+    $translations = Translations::get($locale);
+    $script = <<<JS
+      window.translations = {$translations}
+    JS;
+    self::addScriptInline($script);
   }
 
   public static function build(): string {

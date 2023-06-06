@@ -1,0 +1,14 @@
+{
+  "hints_color_scheme_button": {
+    "_en": "This button is independent application",
+    "_ru": "Эта кнопка — отдельное приложение"
+  },
+  "not_independent_button": {
+    "_en": "And this {button} is not independent application ¯\\_(ツ)_/¯",
+    "_ru": "А эта {button} — не отдельное приложение ¯\\_(ツ)_/¯"
+  },
+  "button": {
+    "_en": "button",
+    "_ru": "кнопка"
+  }
+}

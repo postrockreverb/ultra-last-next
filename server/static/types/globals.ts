@@ -6,9 +6,12 @@ export type WindowColorScheme = {
   toggle: (colorScheme?: ColorScheme) => void;
 };
 
+export type WindowTranslations = Record<string, string>;
+
 declare global {
   interface Window {
     colorScheme?: WindowColorScheme;
+    translations?: WindowTranslations;
   }
 }
 
