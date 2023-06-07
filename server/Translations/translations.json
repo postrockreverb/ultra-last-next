@@ -3,12 +3,24 @@
     "_en": "These buttons are independent application",
     "_ru": "Эти кнопки — отдельное приложение"
   },
-  "not_independent_button": {
+  "home_title": {
+    "_en": "Home",
+    "_ru": "Домой"
+  },
+  "home_not_independent_button_text": {
     "_en": "And this {button} is not independent application ¯\\_(ツ)_/¯",
     "_ru": "А эта {button} — не отдельное приложение ¯\\_(ツ)_/¯"
   },
-  "button": {
+  "home_not_independent_button_button": {
     "_en": "button",
     "_ru": "кнопка"
+  },
+  "profile_title": {
+    "_en": "Profile",
+    "_ru": "Профиль"
+  },
+  "friends_title": {
+    "_en": "Friends",
+    "_ru": "Друзья"
   }
 }

@@ -1,12 +1,11 @@
 import { Text } from '@mantine/core';
 import { ContentLayout } from '@/layouts/ContentLayout';
+import { Translations } from '@/utils';
 
 export default function Friends() {
   return (
     <ContentLayout>
-      <Text>This is a</Text>
-      <Text fz={32}>Friends</Text>
-      <Text>page</Text>
+      <Text fz={32}>{Translations.getKey('friends_title')}</Text>
     </ContentLayout>
   );
 }

@@ -8,11 +8,11 @@ export default function Home() {
     <ContentLayout>
       <Fade>
         <Text inline fz={32}>
-          Home
+          {Translations.getKey('home_title')}
         </Text>
         <Box mt="xl">
-          {Translations.replaceReact(Translations.getKey('not_independent_button'), {
-            button: <Button key="button">{Translations.getKey('button')}</Button>,
+          {Translations.replaceReact(Translations.getKey('home_not_independent_button_text'), {
+            button: <Button key="button">{Translations.getKey('home_not_independent_button_button')}</Button>,
           })}
         </Box>
       </Fade>
