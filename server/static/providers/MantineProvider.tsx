@@ -38,7 +38,7 @@ export const MantineProvider = ({ children }: MantineThemeProps) => {
   const theme = getMantineTheme(colorScheme);
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <_MantineProvider withGlobalStyles withNormalizeCSS withCSSVariables theme={theme}>
+      <_MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
         {children}
       </_MantineProvider>
     </ColorSchemeProvider>
