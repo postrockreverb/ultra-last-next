@@ -1,6 +1,6 @@
 import { ActionIcon as MantineActionIcon } from '@mantine/core';
 import { ReactNode } from 'react';
-import { BORDER_DARK, BORDER_LIGHT, HOVER_DARK, HOVER_LIGHT } from '@/providers';
+import { Colors } from '@/utils';
 
 interface ActionIconProps {
   onClick: () => void;
@@ -17,10 +17,10 @@ export const ActionIcon = ({ onClick, children }: ActionIconProps) => {
       radius="0.375rem"
       sx={(theme) => ({
         transitionDuration: '300ms',
-        color: theme.colorScheme === 'light' ? theme.black : theme.white,
-        borderColor: theme.colorScheme === 'light' ? BORDER_LIGHT : BORDER_DARK,
+        color: Colors.text[theme.colorScheme],
+        borderColor: Colors.border[theme.colorScheme],
         ':hover': {
-          backgroundColor: theme.colorScheme === 'light' ? HOVER_LIGHT : HOVER_DARK,
+          backgroundColor: Colors.hover[theme.colorScheme],
         },
       })}
     >

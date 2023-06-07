@@ -1,7 +1,7 @@
 import { Popover, PopoverBaseProps } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ReactNode, useEffect } from 'react';
-import { BACKGROUND_OVERLAY_DARK, BACKGROUND_OVERLAY_LIGHT } from '@/providers';
+import { Colors } from '@/utils';
 
 interface HintProps extends PopoverBaseProps {
   children: ReactNode;
@@ -30,7 +30,7 @@ export const Hintable = ({ children, content, delay = 0.3, needOpen, onClose, ..
       <Popover.Target>
         <div onMouseEnter={handleClose}>{children}</div>
       </Popover.Target>
-      <Popover.Dropdown sx={(theme) => ({ background: theme.colorScheme === 'dark' ? BACKGROUND_OVERLAY_DARK : BACKGROUND_OVERLAY_LIGHT })}>
+      <Popover.Dropdown sx={(theme) => ({ background: Colors.background[theme.colorScheme] })}>
         <div onMouseEnter={handleClose}>{content}</div>
       </Popover.Dropdown>
     </Popover>

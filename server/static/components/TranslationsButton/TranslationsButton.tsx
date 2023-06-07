@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { createStyles, Group, Menu, rem, UnstyledButton } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
-import { BACKGROUND_OVERLAY_DARK, BACKGROUND_OVERLAY_LIGHT, BORDER_DARK, BORDER_LIGHT, HOVER_DARK, HOVER_LIGHT } from '@/providers';
-import { Translations } from '@/utils';
+import { Colors, Translations } from '@/utils';
 
 const data = [
   { label: 'En', value: 'en' },
@@ -14,12 +13,7 @@ const useStyles = createStyles((theme, { opened }: { opened: boolean }) => {
     if (!opened) {
       return 'transparent';
     }
-
-    if (theme.colorScheme === 'dark') {
-      return HOVER_DARK;
-    }
-
-    return HOVER_LIGHT;
+    return Colors.hover[theme.colorScheme];
   };
 
   return {
@@ -30,12 +24,12 @@ const useStyles = createStyles((theme, { opened }: { opened: boolean }) => {
       alignItems: 'center',
       padding: `${theme.spacing.xs} ${theme.spacing.md}`,
       borderRadius: theme.radius.md,
-      border: `${rem(1)} solid ${theme.colorScheme === 'light' ? BORDER_LIGHT : BORDER_DARK}`,
+      border: `${rem(1)} solid ${Colors.border[theme.colorScheme]}`,
       transition: 'background-color 150ms ease',
       backgroundColor: getBackgroundColor(),
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'light' ? HOVER_LIGHT : HOVER_DARK,
+        backgroundColor: Colors.hover[theme.colorScheme],
       },
     },
 
@@ -83,9 +77,7 @@ export const TranslationsButton = () => {
           <IconChevronDown size="1rem" className={classes.icon} stroke={1.5} />
         </UnstyledButton>
       </Menu.Target>
-      <Menu.Dropdown sx={(theme) => ({ background: theme.colorScheme === 'dark' ? BACKGROUND_OVERLAY_DARK : BACKGROUND_OVERLAY_LIGHT })}>
-        {items}
-      </Menu.Dropdown>
+      <Menu.Dropdown sx={(theme) => ({ background: Colors.overlay_background[theme.colorScheme] })}>{items}</Menu.Dropdown>
     </Menu>
   );
 };
