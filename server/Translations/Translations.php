@@ -16,10 +16,10 @@ class Translations {
 
   private const TRANSLATIONS_SOURCE_FILENAME_PATH = "Translations/translations.json";
 
-  private const TRANSLATIONS_DIST_FILENAME_PATH_FORMAT = "Translations/dist/%s.json";
+  private const TRANSLATIONS_DIST_FOLDER_PATH = "Translations/dist/";
 
   private static function getLangPackFilenamePath(string $lang): string {
-    return sprintf(self::TRANSLATIONS_DIST_FILENAME_PATH_FORMAT, $lang);
+    return self::TRANSLATIONS_DIST_FOLDER_PATH . $lang . '.json';
   }
 
   public static function get(string $locale): string {
@@ -48,6 +48,10 @@ class Translations {
 
   public static function build(): void {
     echo "🌏  Langs build\n";
+
+    if (!file_exists(self::TRANSLATIONS_DIST_FOLDER_PATH)) {
+      mkdir(self::TRANSLATIONS_DIST_FOLDER_PATH, 0777, true);
+    }
 
     $langs_source_file = file_get_contents(self::TRANSLATIONS_SOURCE_FILENAME_PATH);
     $hash              = md5($langs_source_file);

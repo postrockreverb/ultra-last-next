@@ -1,28 +1,27 @@
-run:
-	docker-compose up -d
-
-restart-nginx:
-	docker restart legacy-nginx-api
-rn: restart-nginx
-
 init:
-	yarn --cwd ./server
-	docker-compose build
+	docker-compose up -d --build --remove-orphans
+	docker exec ultra-last-next-php composer install
+	yarn --cwd ./server/static
+	make build
 
+w: watch
 watch:
 	yarn --cwd ./server/static watch
-w: watch
 
+b: build
+build: build-translations build-static
+
+bt: build-translations
 build-translations:
 	cd ./server && php ./Translations/build.php
-bt: build-translations
 
 build-static:
 	yarn --cwd ./server/static build
 
-build: build-translations build-static
-b: build
+rn: restart-nginx
+restart-nginx:
+	docker restart ultra-last-next-nginx
 
-shell:
-	docker exec -it legacy-server /bin/sh
 s: shell
+shell:
+	docker exec -it ultra-last-next-php /bin/sh
