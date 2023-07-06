@@ -4,7 +4,7 @@ namespace Common;
 
 use Translations\Translations;
 
-class DocumentHead {
+class Document {
 
   private const INDEX_TITLE   = 0;
   private const STATIC_PATH   = 'static/';
