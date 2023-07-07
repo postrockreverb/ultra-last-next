@@ -8,7 +8,6 @@ and it can be modified in any way to suit needs.
 * Dockerized
 * Translations
 * Static build
-* Data prefetch
 * Multiple entry points
 
 ## Requirements
