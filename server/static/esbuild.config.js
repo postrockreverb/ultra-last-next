@@ -8,24 +8,27 @@ import * as path from 'path';
 export const isWatching = process.argv.includes('-w');
 export const isProduction = process.argv.includes('-p');
 
-const entries = {};
-const entriesRoot = fs.readdirSync('./entries');
-for (const entry of entriesRoot) {
-  const entryName = entry.replace('.tsx', '');
-  const entryPath = fs.statSync('./entries/' + entry);
+const entries = (function () {
+  const entries = {};
+  const entriesRoot = fs.readdirSync('./entries');
+  for (const entry of entriesRoot) {
+    const entryName = entry.replace('.tsx', '');
+    const entryPath = fs.statSync('./entries/' + entry);
 
-  if (entryPath.isFile()) {
-    if (/\.tsx|\.css$/.test(entry)) {
-      entries[entryName] = `./entries/${entry}`;
+    if (entryPath.isFile()) {
+      if (/\.tsx|\.css$/.test(entry)) {
+        entries[entryName] = `./entries/${entry}`;
+        continue;
+      }
+    }
+
+    if (entryPath.isDirectory() && fs.readdirSync(`./entries/${entry}`).includes('index.tsx')) {
+      entries[entryName] = `./entries/${entry}/index.tsx`;
       continue;
     }
   }
-
-  if (entryPath.isDirectory() && fs.readdirSync(`./entries/${entry}`).includes('index.tsx')) {
-    entries[entryName] = `./entries/${entry}/index.tsx`;
-    continue;
-  }
-}
+  return entries;
+})();
 
 let [ctx] = await Promise.all([
   esbuild
