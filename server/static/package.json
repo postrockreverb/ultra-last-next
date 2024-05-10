@@ -12,16 +12,13 @@
     "lint": "eslint '{**/*,*}.{ts,tsx}'"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@mantine/core": "^6.0.11",
-    "@mantine/hooks": "^6.0.11",
-    "@tabler/icons-react": "^2.20.0",
-    "framer-motion": "^10.12.16",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.11.2",
-    "react-router-dom": "^6.11.2",
-    "react-string-replace": "^1.1.0"
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -35,6 +32,7 @@
     "esbuild": "^0.17.19",
     "esbuild-css-modules-plugin": "^2.7.1",
     "esbuild-plugin-eslint": "^0.3.6",
+    "esbuild-plugin-tailwindcss": "^1.2.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

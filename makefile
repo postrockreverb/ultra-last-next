@@ -9,13 +9,7 @@ watch:
 	yarn --cwd ./server/static watch
 
 b: build
-build: build-translations build-static
-
-bt: build-translations
-build-translations:
-	cd ./server && php ./Translations/build.php
-
-build-static:
+build:
 	yarn --cwd ./server/static build
 
 rn: restart-nginx
