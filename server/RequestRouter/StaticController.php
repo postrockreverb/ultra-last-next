@@ -1,10 +1,10 @@
 <?php
 
-namespace RequestRouter;
+namespace App\RequestRouter;
 
-use Common\Document;
 use Donner\Controller\AbstractController;
-use Translations\Translations;
+use App\Common\Document;
+use App\Translations\Translations;
 
 class StaticController extends AbstractController {
   public const URI = '/?.+';

@@ -1,6 +1,6 @@
-# ultra-last-next-js
+# ultra-last-next
 
-ultra-last-next-js is a boilerplate framework for web development.
+ultra-last-next is a boilerplate framework for web development.
 It provides minimal server architecture, build of client static,
 and it can be modified in any way to suit needs.
 

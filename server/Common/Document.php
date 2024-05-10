@@ -1,8 +1,8 @@
 <?php
 
-namespace Common;
+namespace App\Common;
 
-use Translations\Translations;
+use App\Translations\Translations;
 
 class Document {
 
